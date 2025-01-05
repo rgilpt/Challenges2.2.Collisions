@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn25iihy0tcyh"]
+
+[ext_resource type="Script" path="res://scripts/resource.gd" id="1_4jyi7"]
+[ext_resource type="Resource" uid="uid://du53g3ydfnmxo" path="res://scripts/items/key.tres" id="2_xjk7t"]
+[ext_resource type="Texture2D" uid="uid://qvuiexe0dg01" path="res://assets/Items001.png" id="3_s434i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf8in"]
+atlas = ExtResource("3_s434i")
+region = Rect2(32, 40, 16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc7s7"]
+size = Vector2(13, 7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onklv"]
+bg_color = Color(0.423529, 0.737255, 0.388235, 0.501961)
+
+[node name="Resource" type="CharacterBody2D" groups=["Collectable"]]
+collision_mask = 0
+script = ExtResource("1_4jyi7")
+item_data = ExtResource("2_xjk7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_kf8in")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_uc7s7")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 53.0
+offset_bottom = 41.0
+text = "100"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(20, 4)
+offset_left = -10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 14.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_onklv")

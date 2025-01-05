@@ -1,0 +1,223 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn3ii3fpw0qyb"]
+
+[ext_resource type="Script" path="res://scripts/hero.gd" id="1_f4hnl"]
+[ext_resource type="Texture2D" uid="uid://csnp6lsg2nhsw" path="res://assets/AnimChallenge.png" id="1_ldosq"]
+
+[sub_resource type="Animation" id="Animation_03v0t"]
+resource_name = "Walking"
+step = 0.02
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jkoq8"]
+_data = {
+"Walking": SubResource("Animation_03v0t")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cf4fo"]
+radius = 16.0
+height = 102.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrfvh"]
+radius = 42.0119
+
+[node name="Hero" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_f4hnl")
+MAX_SPEED = 100.0
+SLOWDOWN = 5.0
+JUMP = 180.0
+
+[node name="Animation" type="Node2D" parent="."]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Animation"]
+
+[node name="Torso" type="Bone2D" parent="Animation/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Head" type="Bone2D" parent="Animation/Skeleton2D/Torso"]
+position = Vector2(1.19209e-07, -30)
+rotation = -0.107748
+scale = Vector2(1, 1)
+rest = Transform2D(0.0918772, -0.99577, 0.99577, 0.0918772, 1.19209e-07, -30)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Animation/Skeleton2D/Torso/Head"]
+texture_filter = 1
+position = Vector2(-0.0255661, 0.0213885)
+rotation = 0.130569
+texture = ExtResource("1_ldosq")
+offset = Vector2(-0.0189571, -10.0274)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="LeftArm" type="Bone2D" parent="Animation/Skeleton2D/Torso"]
+position = Vector2(17, -22)
+rotation = 0.779851
+rest = Transform2D(0.711018, 0.703174, -0.703174, 0.711018, 17, -22)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Animation/Skeleton2D/Torso/LeftArm"]
+texture_filter = 1
+position = Vector2(12.7356, -1.34359)
+rotation = -0.915443
+texture = ExtResource("1_ldosq")
+region_enabled = true
+region_rect = Rect2(72, 32, 24, 24)
+
+[node name="LeftArm2" type="Bone2D" parent="Animation/Skeleton2D/Torso/LeftArm"]
+position = Vector2(16.9781, -1.32006)
+rotation = 0.637225
+scale = Vector2(1, 1)
+rest = Transform2D(0.919544, -0.392986, 0.392986, 0.919544, 16.9781, -1.32006)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Animation/Skeleton2D/Torso/LeftArm/LeftArm2"]
+texture_filter = 1
+position = Vector2(9.53674e-07, 0)
+rotation = -1.59674
+texture = ExtResource("1_ldosq")
+offset = Vector2(3.42427, 7.8199)
+region_enabled = true
+region_rect = Rect2(104, 40, 24, 24)
+
+[node name="RightArm" type="Bone2D" parent="Animation/Skeleton2D/Torso"]
+position = Vector2(-13, -24)
+rotation = 2.25469
+rest = Transform2D(-0.79601, 0.605284, -0.605284, -0.79601, -13, -24)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Animation/Skeleton2D/Torso/RightArm"]
+texture_filter = 1
+position = Vector2(-1.90735e-06, 3.8147e-06)
+rotation = -0.40394
+texture = ExtResource("1_ldosq")
+offset = Vector2(7.45647, 6.199)
+region_enabled = true
+region_rect = Rect2(64, 64, 24, 24)
+
+[node name="Bone2D5" type="Bone2D" parent="Animation/Skeleton2D/Torso/RightArm"]
+position = Vector2(16.5917, 1.30989)
+rotation = 2.36725
+rest = Transform2D(-0.951586, -0.307384, 0.307384, -0.951586, 16.5917, 1.30989)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Animation/Skeleton2D/Torso/RightArm/Bone2D5"]
+texture_filter = 1
+rotation = 3.19742
+texture = ExtResource("1_ldosq")
+offset = Vector2(5.16071, 3.51347)
+region_enabled = true
+region_rect = Rect2(104, 72, 24, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation/Skeleton2D/Torso"]
+texture_filter = 1
+position = Vector2(2, -14)
+texture = ExtResource("1_ldosq")
+region_enabled = true
+region_rect = Rect2(0, 32, 64, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Animation/Skeleton2D/Torso"]
+texture_filter = 1
+rotation = 0.0219201
+texture = ExtResource("1_ldosq")
+offset = Vector2(0, 10)
+region_enabled = true
+region_rect = Rect2(0, 64, 64, 32)
+
+[node name="HipLeft" type="Bone2D" parent="Animation/Skeleton2D/Torso"]
+position = Vector2(7, 5)
+rotation = 1.57026
+rest = Transform2D(0.000533656, 1, -1, 0.000533656, 0, 0)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipLeft"]
+texture_filter = 1
+position = Vector2(1.90735e-06, 0)
+rotation = -1.98522
+texture = ExtResource("1_ldosq")
+offset = Vector2(0, 10)
+region_enabled = true
+region_rect = Rect2(64, 0, 24, 32)
+
+[node name="Bone2D6" type="Bone2D" parent="Animation/Skeleton2D/Torso/HipLeft"]
+position = Vector2(15.0059, -10.992)
+rotation = 1.38204
+rest = Transform2D(0.103749, 0.994603, -0.994603, 0.103749, 19.008, -14.9899)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipLeft/Bone2D6"]
+texture_filter = 1
+position = Vector2(-0.994553, -0.104279)
+rotation = -2.80289
+texture = ExtResource("1_ldosq")
+offset = Vector2(0, 10)
+region_enabled = true
+region_rect = Rect2(32, 96, 32, 32)
+
+[node name="Bone2D8" type="Bone2D" parent="Animation/Skeleton2D/Torso/HipLeft/Bone2D6"]
+position = Vector2(-0.00777769, -19.105)
+rotation = 2.0737
+scale = Vector2(1, 1)
+rest = Transform2D(-0.0814308, 0.996679, -0.996679, -0.0814308, -0.00777769, -19.105)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipLeft/Bone2D6/Bone2D8"]
+texture_filter = 1
+position = Vector2(-1.99998, -0.0065918)
+rotation = 1.15437
+texture = ExtResource("1_ldosq")
+offset = Vector2(6.2363, 1.84574)
+region_enabled = true
+region_rect = Rect2(64, 104, 32, 16)
+
+[node name="HipRight" type="Bone2D" parent="Animation/Skeleton2D/Torso"]
+position = Vector2(-10, 6)
+rotation = 1.57026
+rest = Transform2D(0.000533656, 1, -1, 0.000533656, 0, 0)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipRight"]
+texture_filter = 1
+position = Vector2(0.0804744, 0.548481)
+rotation = -1.41526
+scale = Vector2(1, 1)
+texture = ExtResource("1_ldosq")
+offset = Vector2(-1.38491, 4.06185)
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 24)
+
+[node name="Bone2D5" type="Bone2D" parent="Animation/Skeleton2D/Torso/HipRight"]
+position = Vector2(14.9979, 4.00804)
+rotation = -1.08339
+scale = Vector2(1, 1)
+rest = Transform2D(0.455651, -0.890159, 0.890159, 0.455651, 19.9936, 12.0107)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipRight/Bone2D5"]
+texture_filter = 1
+position = Vector2(-2.99943, 0.0586741)
+rotation = -0.207968
+texture = ExtResource("1_ldosq")
+offset = Vector2(0, 10)
+region_enabled = true
+region_rect = Rect2(0, 96, 32, 32)
+
+[node name="Bone2D7" type="Bone2D" parent="Animation/Skeleton2D/Torso/HipRight/Bone2D5"]
+position = Vector2(-1.24833, 23.2904)
+rotation = -1.4181
+scale = Vector2(1, 1)
+rest = Transform2D(0.276731, 0.960948, -0.960948, 0.276731, -0.730807, 18.343)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipRight/Bone2D5/Bone2D7"]
+texture_filter = 1
+position = Vector2(1.98253, -0.263735)
+rotation = 1.06245
+texture = ExtResource("1_ldosq")
+offset = Vector2(6.2363, 1.84574)
+region_enabled = true
+region_rect = Rect2(64, 104, 32, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+libraries = {
+"": SubResource("AnimationLibrary_jkoq8")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_cf4fo")
+
+[node name="InteractableArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+shape = SubResource("CircleShape2D_yrfvh")
+
+[connection signal="body_entered" from="InteractableArea" to="." method="_on_area_2d_body_entered"]
