@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsjs7rs8tyk14"]
+
+[ext_resource type="Script" path="res://MFL/core/scripts/info_player.gd" id="1_33ks0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6b73"]
+radius = 13.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mb5w7"]
+font_size = 8
+
+[node name="InfoPlayer" type="StaticBody2D" groups=["Interactable"]]
+position = Vector2(625, 648)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_33ks0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, -1)
+shape = SubResource("CircleShape2D_o6b73")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -106.0
+offset_top = -38.0
+offset_right = 35.0
+offset_bottom = -11.0
+text = "There is always different ways to solve a problem"
+label_settings = SubResource("LabelSettings_mb5w7")
+autowrap_mode = 3
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

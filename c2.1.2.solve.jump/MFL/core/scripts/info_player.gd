@@ -1,17 +1,19 @@
 extends StaticBody2D
-@onready var label: Label = $Label
-@onready var door: StaticBody2D = $Door
-@export var allow_hide: bool = false
 
-var messages = [
-	"Press E to Interact",
-	"You need a key to open!",
-	"Well done!",
-]
+@onready var label: Label = $Label
+@export var allow_hide: bool = false
+@export var info_message: String = "" : 
+	set(value):
+		info_message = value
+		if label != null:
+			label.set_text(value)
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	label.set_text(info_message)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,18 +24,6 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		label.visible = true
-
-func interaction(condition):
-	if not door.is_open and condition:
-		door.is_open = true
-		label.set_text(messages[2])
-	else:
-		label.set_text(messages[1])
-		
-func set_message_text(index):
-	label.set_text(messages[index])
-
-
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

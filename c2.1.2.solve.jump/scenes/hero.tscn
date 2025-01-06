@@ -35,7 +35,6 @@ rest = Transform2D(1, 0, 0, 1, 0, 0)
 [node name="Head" type="Bone2D" parent="Animation/Skeleton2D/Torso"]
 position = Vector2(1.19209e-07, -30)
 rotation = -0.107748
-scale = Vector2(1, 1)
 rest = Transform2D(0.0918772, -0.99577, 0.99577, 0.0918772, 1.19209e-07, -30)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Animation/Skeleton2D/Torso/Head"]
@@ -63,7 +62,6 @@ region_rect = Rect2(72, 32, 24, 24)
 [node name="LeftArm2" type="Bone2D" parent="Animation/Skeleton2D/Torso/LeftArm"]
 position = Vector2(16.9781, -1.32006)
 rotation = 0.637225
-scale = Vector2(1, 1)
 rest = Transform2D(0.919544, -0.392986, 0.392986, 0.919544, 16.9781, -1.32006)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Animation/Skeleton2D/Torso/LeftArm/LeftArm2"]
@@ -78,6 +76,7 @@ region_rect = Rect2(104, 40, 24, 24)
 [node name="RightArm" type="Bone2D" parent="Animation/Skeleton2D/Torso"]
 position = Vector2(-13, -24)
 rotation = 2.25469
+scale = Vector2(1, 1)
 rest = Transform2D(-0.79601, 0.605284, -0.605284, -0.79601, -13, -24)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Animation/Skeleton2D/Torso/RightArm"]
@@ -148,7 +147,6 @@ region_rect = Rect2(32, 96, 32, 32)
 [node name="Bone2D8" type="Bone2D" parent="Animation/Skeleton2D/Torso/HipLeft/Bone2D6"]
 position = Vector2(-0.00777769, -19.105)
 rotation = 2.0737
-scale = Vector2(1, 1)
 rest = Transform2D(-0.0814308, 0.996679, -0.996679, -0.0814308, -0.00777769, -19.105)
 
 [node name="Sprite2D5" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipLeft/Bone2D6/Bone2D8"]
@@ -169,7 +167,6 @@ rest = Transform2D(0.000533656, 1, -1, 0.000533656, 0, 0)
 texture_filter = 1
 position = Vector2(0.0804744, 0.548481)
 rotation = -1.41526
-scale = Vector2(1, 1)
 texture = ExtResource("1_ldosq")
 offset = Vector2(-1.38491, 4.06185)
 region_enabled = true
@@ -178,7 +175,6 @@ region_rect = Rect2(32, 0, 32, 24)
 [node name="Bone2D5" type="Bone2D" parent="Animation/Skeleton2D/Torso/HipRight"]
 position = Vector2(14.9979, 4.00804)
 rotation = -1.08339
-scale = Vector2(1, 1)
 rest = Transform2D(0.455651, -0.890159, 0.890159, 0.455651, 19.9936, 12.0107)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipRight/Bone2D5"]
@@ -193,7 +189,6 @@ region_rect = Rect2(0, 96, 32, 32)
 [node name="Bone2D7" type="Bone2D" parent="Animation/Skeleton2D/Torso/HipRight/Bone2D5"]
 position = Vector2(-1.24833, 23.2904)
 rotation = -1.4181
-scale = Vector2(1, 1)
 rest = Transform2D(0.276731, 0.960948, -0.960948, 0.276731, -0.730807, 18.343)
 
 [node name="Sprite2D4" type="Sprite2D" parent="Animation/Skeleton2D/Torso/HipRight/Bone2D5/Bone2D7"]
