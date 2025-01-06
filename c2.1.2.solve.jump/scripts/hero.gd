@@ -10,6 +10,15 @@ const GRAVITY = 400
 
 var has_key = false
 @onready var interactable_area: Area2D = $InteractableArea
+@onready var animation_player: AnimationPlayer = $Animation/AnimationPlayer
+@onready var animation: Node2D = $Animation
+
+enum AnimationState{
+	IDLE,
+	WALKING,
+	JUMPING
+}
+var my_state = AnimationState.IDLE
 
 func _physics_process(delta):
 	## Add the gravity to the game cycle
@@ -17,12 +26,21 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("ui_left"):
 		speed_direction.x = -1
+		animation.scale.x = -1
+		if is_on_floor():
+			my_state = AnimationState.WALKING
 	elif Input.is_action_pressed("ui_right"):
+		animation.scale.x = 1
 		speed_direction.x = 1
+		if is_on_floor():
+			my_state = AnimationState.WALKING
 	else:
 		speed_direction.x = 0
+		if is_on_floor():
+			my_state = AnimationState.IDLE
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y -= JUMP
+		my_state = AnimationState.JUMPING
 	if Input.is_action_just_pressed("ui_interact"):
 		var interactable_objects = interactable_area.get_overlapping_bodies()
 		interactable_objects =interactable_objects.filter(func(o):return o.is_in_group("Interactable"))
@@ -34,7 +52,16 @@ func _physics_process(delta):
 		##Optional: decrease the speed with some slowdown or just set to 0
 		velocity.x = move_toward(velocity.x, 0, SLOWDOWN)
 #		velocity.x = 0
-
+	match my_state:
+		AnimationState.WALKING:
+			animation_player.play("Walking")
+			animation_player.speed_scale = 2
+		AnimationState.JUMPING:
+			animation_player.play("Jump")
+			animation_player.speed_scale = 1
+		AnimationState.IDLE:
+			animation_player.play("Idle")
+			animation_player.speed_scale = 1
 	move_and_slide()
 
 
